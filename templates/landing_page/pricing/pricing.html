@@ -1,0 +1,39 @@
+{% load static %}
+<!-- Pricing Section -->
+<section id="pricing" class="pricing section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Pricing</h2>
+      <p>Check Our Affordable Pricing<br></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-4">
+        
+        {% for pricing in pricings %}
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="pricing-tem">
+            <h3 style="color: #{{pricing.color}};">{{pricing.plan_name}}</h3>
+            <div class="price"><sup>$</sup>{{pricing.price}}<span> / {{pricing.date}}</span></div>
+            <div class="icon">
+              <i class="{{pricing.icon}}" style="color: #20c997;"></i>
+            </div>
+            <ul>
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li class="na">Pharetra massa</li>
+              <li class="na">Massa ultricies mi</li>
+            </ul>
+            <a href="#" class="btn-buy">Buy Now</a>
+          </div>
+        </div><!-- End Pricing Item -->
+        {% endfor %}
+
+      </div><!-- End pricing row -->
+
+    </div>
+
+  </section><!-- /Pricing Section -->

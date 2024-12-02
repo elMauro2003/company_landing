@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Alt Features Section -->
+<section id="alt-features" class="alt-features section">
+
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-self-center gy-5">
+            {% for feat in alt_feature %}
+            <div class="col-md-6 icon-box">
+              <i class="{{feat.icon}}"></i>
+              <div>
+                <h4>{{feat.title}}</h4>
+                <p>{{feat.description}}</p>
+              </div>
+            </div><!-- End Feature Item -->
+            {% endfor %}
+          </div>
+
+        </div>
+
+        <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up" data-aos-delay="100">
+          <img src="{% static 'assets/img/alt-features.png' %}" class="img-fluid" alt="">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /Alt Features Section -->

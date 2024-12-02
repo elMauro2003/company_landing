@@ -1,0 +1,28 @@
+{% load static %}
+<!-- About Section  -->
+<section id="about" class="about section">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About us</h2>
+        <p>WHO WE ARE?</p>
+      </div>
+      <div class="row gx-0">
+        <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+          <div class="content">
+            <h3>{{ about.title }}</h3>
+            <h2>{{ about.subtitle }}</h2>
+            <p>{{ about.description }}</p>
+            <div class="text-center text-lg-start">
+              <a href="{{ about.button_link }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>{{ about.button_text }}</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{{ about.image.url }}" class="img-fluid" alt="imagen">
+        </div>
+      </div>
+    </div>
+</section><!-- /About Section -->

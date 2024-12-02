@@ -1,0 +1,101 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="{% static 'assets/js/color-modes.js' %}"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Iniciar sesión de usuario">
+    <meta name="author" content="MangelRyujin and elMauro2003">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>SINFIMAC | Inicio de sesión</title>
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/login/styles.css' %}" rel="stylesheet">
+
+  </head>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+
+    
+<main class="form-signin w-100 m-auto">
+  <form class="text-center" method="post">
+    {% csrf_token %}
+    <img class="mb-3" src="{% static "assets/img/logo.png" %}" alt="" width="122" height="107">
+    <h1 class="h3 mb-3 text-center fw-normal">Inicio de sesión</h1>
+
+    <div class=" input-group mt-4">
+                
+        <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value|default_if_none:'' }}" placeholder="Nombre de Usuario">
+      
+      <span class="input-group-text" id="basic-addon2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class=" bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+      </span>
+    </div>
+    <input type="hidden" name="next" value="{{ next }}">
+    <div class=" input-group mt-4">
+                
+        <input type="password" name="password" id="floatingInputPassword" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2" class="form-control" value="{{ form.password.value|default_if_none:'' }}">
+      
+      <span class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class=" bi-eye-slash-fill cursor-pointer" viewBox="0 0 16 16" id="eyeSlashIcon">
+              <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+          <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+          </svg>
+          <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class=" bi-eye-fill cursor-pointer d-none" viewBox="0 0 16 16" id="eyeIcon">
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+          </svg>
+          
+      </span>
+    </div>
+    {% if error %}
+    <div class="alert alert-danger text-start  mt-3" role="alert">
+        {{error}}
+      </div>
+    {% endif %}
+    
+    <div class="form-check text-end my-3">
+      
+        <a href="#" class="text-decoration-none small d-flex text-body justify-content-end">
+            <b class=" d-flex text-end ">¿Olvidé mi contraseña? <p class="text-primary ms-1"> Recuperar</p></b>
+          
+          </a>
+          <a href="{% url 'register' %}" class="text-decoration-none small d-flex text-body justify-content-end">
+            <b class=" d-flex text-end ">¿No tengo cuenta? <p class="text-danger ms-1"> Registrar</p></b>
+           
+          </a>
+    </div>
+    <button class="btn btn-bd-primary w-100 py-2 " type="submit">Iniciar</button>
+   
+  </form>
+  <div class="row g-2 mt-4">
+    <div class="col-6">
+      <button class="btn btn-outline-danger w-100 py-2 " type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi-eye-slash-fill cursor-pointer" viewBox="0 0 16 16" id="eyeSlashIcon">
+          <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+      <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+      </svg>Google
+      </button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-outline-secondary w-100 py-2 " type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi-eye-slash-fill cursor-pointer" viewBox="0 0 16 16" id="eyeSlashIcon">
+          <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+      <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+      </svg>Github
+      </button>
+    </div>
+    <p class="mt-4 mb-2 text-center text-body-secondary">&copy; Remiux 2025</p>
+  </div>
+</main>
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/loginpass.js' %}"></script>
+
+    </body>
+</html>

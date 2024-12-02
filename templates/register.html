@@ -1,0 +1,136 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="{% static 'assets/js/color-modes.js' %}"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Iniciar sesión de usuario">
+    <meta name="author" content="MangelRyujin and elMauro2003">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>SINFIMAC | Registro</title>
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/login/styles.css' %}" rel="stylesheet">
+
+  </head>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+
+    
+<main class="form-signin w-100 m-auto">
+  <form class="text-center" method="post">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 text-center fw-normal">Registro</h1>
+
+    <div class=" input-group ">
+                  
+        <input type="text" value="{% if form.username.value %}{{form.username.value}}{% endif %}" class="form-control" id="floatingInputUsername" name='username' required placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputUsername" class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="20 bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+        </label>
+        
+      </div>
+      {% if form.username.errors %}
+        <div class="alert alert-danger mt-2 p-2 text-start">
+            {% for error in form.username.errors %}
+                {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      <div class=" input-group mt-4">
+        
+        <input type="text" class="form-control" value="{% if form.email.value %}{{form.email.value}}{% endif %}" id="floatingInputEmail" name='email' required placeholder="Correo electrónico" aria-label="Recipient's email" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputEmail" class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-google" viewBox="0 0 16 16">
+            <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+          </svg>
+        </label>
+        
+      </div>
+      {% if form.email.errors %}
+  <div class="alert alert-danger mt-2 p-2 text-start">
+      {% for error in form.email.errors %}
+          {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if form.agency.errors %}
+    <div class="alert alert-danger mt-2 p-2 text-start">
+        {% for error in form.agency.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+      <div class=" input-group mt-4">
+        
+        <input type="password" name="password1" id="floatingInputPassword1" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2" class="form-control" value="{{ form.password.value|default_if_none:'' }}">
+        
+        <span class="input-group-text" id="basic-addon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-eye-slash-fill cursor-pointer" viewBox="0 0 16 16" id="eyeSlashIcon1">
+                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+            <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+            </svg>
+            <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-eye-fill cursor-pointer d-none" viewBox="0 0 16 16" id="eyeIcon1">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+            </svg>
+            
+        </span>
+        
+      </div>
+      {% if form.password1.errors %}
+        <div class="alert alert-danger mt-2 p-2 text-start">
+            {% for error in form.password1.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+      {% endif %}
+
+       <div class=" input-group mt-4">
+        
+        <input type="password" name="password2" id="floatingInputPassword2" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2" class="form-control" value="{{ form.password.value|default_if_none:'' }}">
+        
+        <span class="input-group-text" id="basic-addon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-eye-slash-fill cursor-pointer" viewBox="0 0 16 16" id="eyeSlashIcon2">
+                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+            <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+            </svg>
+            <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-eye-fill cursor-pointer d-none" viewBox="0 0 16 16" id="eyeIcon2">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+            </svg>
+            
+        </span>
+        
+      </div> 
+      {% if form.password2.errors %}
+      <div class="alert alert-danger mt-2 p-2 text-start">
+          {% for error in form.password2.errors %}
+              {{ error }}
+          {% endfor %}
+      </div>
+  {% endif %}
+    
+    <div class="form-check text-end my-3">
+          <a href="{% url 'login' %}" class="text-decoration-none small d-flex text-body justify-content-end">
+            <b class=" d-flex text-end ">Ya tengo cuenta! <p class="text-danger ms-1"> Iniciar sesión</p></b>
+           
+          </a>
+    </div>
+    <button class="btn btn-bd-primary w-100 py-2 " type="submit">Registrar</button>
+    <p class="mt-4 mb-2 text-body-secondary">&copy; Angeles Cubas 2025</p>
+  </form>
+</main>
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/registerpass.js' %}"></script>
+
+    </body>
+</html>

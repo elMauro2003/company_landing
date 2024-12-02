@@ -1,0 +1,29 @@
+{% load static %}
+<!-- Services Section -->
+<section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Services</h2>
+      <p>Check Our Services<br></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-4">
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item item-{{service.color}} position-relative">
+            <i class="{{service.icon}} icon"></i>
+            <h3>{{service.title}}</h3>
+            <p>{{service.description}}</p>
+            <a href="{{service.button_link}}" class="read-more stretched-link"><span>{{service.button_text}}</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+        {% endfor %}
+        
+      </div>
+
+    </div>
+
+  </section><!-- /Services Section -->

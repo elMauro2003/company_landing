@@ -1,0 +1,43 @@
+{% load static %}
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Portfolio</h2>
+      <p>Check our latest work</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+        <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter="*" class="filter-active">Todos</li>
+          {% for filter in filters %}
+          <li data-filter=".filter-{{filter.filter}}" class="filter-active">{{filter.filter_name}}</li>
+          {% endfor %}
+        </ul><!-- End Portfolio Filters -->
+
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+          {% for project in projects %}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{project.filter}}">
+            <div class="portfolio-content h-100">
+              <img src="{{project.image.url}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{project.project_name}}</h4>
+                <p>{{project.description}}</p>
+                <a href="{{project.image.url}}" title="{{project.button1_text}}" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="{{project.button2_link}}" title="{{project.button2_text}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Portfolio Item -->
+          {% endfor %}
+
+        </div><!-- End Portfolio Container -->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Portfolio Section -->

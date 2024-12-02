@@ -1,0 +1,40 @@
+{% load static %}
+<!-- Team Section -->
+<section id="team" class="team section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Team</h2>
+      <p>Our hard working team</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-4">
+        {% for team in teams %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="{{team.image.url}}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="{{team.media1_icon}}"></i></a>
+                <a href=""><i class="{{team.media2_icon}}"></i></a>
+                <a href=""><i class="{{team.media3_icon}}"></i></a>
+                <a href=""><i class="{{team.media4_icon}}"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>{{team.member_name}}</h4>
+              <span>{{team.position}}</span>
+              <p>{{team.description}}</p>
+            </div>
+          </div>
+        </div><!-- End Team Member -->
+        {% endfor %}
+        
+
+      </div>
+
+    </div>
+
+  </section><!-- /Team Section -->
