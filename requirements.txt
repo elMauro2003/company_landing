@@ -6,6 +6,7 @@ django-widget-tweaks==1.5.0
 pillow==11.0.0
 psycopg==3.2.3
 psycopg-binary==3.2.3
+python-decouple==3.8
 sqlparse==0.5.2
 typing_extensions==4.12.2
 tzdata==2024.2
