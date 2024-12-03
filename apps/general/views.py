@@ -16,7 +16,10 @@ def index(request):
     teams = Team.objects.all()
     filters = Filter.objects.all()
     
+    current_url = request.path
+    
     return render(request, 'index.html', {
+        'current_url': current_url,
         'hero': hero,
         'about': about,
         'alt_feature': alt_feature,
@@ -26,6 +29,7 @@ def index(request):
         'testimonials': testimonials,
         'teams': teams,
         'filters': filters,
+        'current_url': current_url,
     })
 
 def create_contact(request):

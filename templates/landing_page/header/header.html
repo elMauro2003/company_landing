@@ -10,17 +10,26 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
+          {% if current_url == '/' %}
           <li><a href="#hero" class="active">Inicio<br></a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Portafolio</a></li>
           <li><a href="#team">Equipo</a></li>
           <li><a href="#contact">Contacto</a></li>
+          {% else %}
+          <li><a href="{% url 'index' %}" class="active">Inicio<br></a></li>
+          <li><a href="#alt-features">Características</a></li>
+          <li><a href="#more-info">Más Información</a></li>
+          <li><a href="#portfolio">Galería</a></li>
+          {% endif %}
+          
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
+      {% if current_url == '/' %}
       <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
+      {% endif %}
 
     </div>
   </header>
