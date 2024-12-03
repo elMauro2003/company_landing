@@ -26,11 +26,6 @@ class PricingForm(forms.ModelForm):
         model = Pricing
         fields = ['plan_name', 'color', 'price', 'icon', 'date', 'button_text', 'button_link']
 
-class PortfolioForm(forms.ModelForm):
-    class Meta:
-        model = Portfolio
-        fields = ['project_name', 'filter', 'description', 'image', 'button1_text', 'button2_text', 'button2_link']
-
 class TestimonialsForm(forms.ModelForm):
     class Meta:
         model = Testimonials
@@ -45,8 +40,3 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name','email', 'subject', 'message']
-
-class FilterForm(forms.ModelForm):
-    class Meta:
-        model = Filter
-        fields = ['filter','filter_name']

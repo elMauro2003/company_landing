@@ -1,18 +1,5 @@
 {% load static %}
 
-{% if messages %}
-        {% for message in messages%}
-            <script>                
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "{{message}}",
-                    showConfirmButton: false,
-                    timer: 2500
-                });
-            </script>
-        {% endfor %}
-    {% endif %}
 
 <!-- Contact Section -->
 <section id="contact" class="contact section">
@@ -70,55 +57,8 @@
 
         </div>
 
-        <div id="contact-form-container"  class="col-lg-6">
-          <form id="form-change" class="php-email-form" hx-post="{% url 'create_contact' %}" hx-target="#form-change" hx-swap="innerHTML">
-            {% csrf_token %}
-            <div class="row gy-4">
-                <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                    {% if form.name.errors %}
-                    <div class="alert alert-danger mt-2">
-                        {% for error in form.name.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                    {% if form.email.errors %}
-                    <div class="alert alert-danger mt-2">
-                        {% for error in form.email.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Your Subject" required>
-                  {% if form.email.errors %}
-                  <div class="alert alert-danger mt-2">
-                      {% for error in form.subject.errors %}
-                          {{ error }}
-                      {% endfor %}
-                  </div>
-                  {% endif %}
-              </div>
-                <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required></textarea>
-                    {% if form.message.errors %}
-                    <div class="alert alert-danger mt-2">
-                        {% for error in form.message.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-            </div>
-        </form>
+        <div id="form-change"  class="col-lg-6">
+          {% include "landing_page/contact/contact_response.html" %}
         </div><!-- End Contact Form -->
 
       </div>

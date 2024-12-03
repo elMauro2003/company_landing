@@ -3,13 +3,14 @@ from django.http import JsonResponse
 from django.contrib import messages
 from .models import *
 from .forms import *
+from apps.portfolio.models import *
 
 def index(request):
     hero = Hero.objects.first()
     about = About.objects.first()  # Asumiendo que solo hay una instancia de About
     alt_feature = AltFeatures.objects.all()  # Asumiendo que solo hay una instancia de AltFeatures
     services = Services.objects.all()  # Puede haber múltiples instancias de Services
-    pricings = Pricing.objects.all()
+    pricings = Pricing.objects.all().order_by('pk')
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
     teams = Team.objects.all()
@@ -28,16 +29,13 @@ def index(request):
     })
 
 def create_contact(request):
+    form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Formulario enviado exitosamente!")
-            response = render(request, 'landing_page/contact/contact.html', {'form': ContactForm()})
+            response = render(request, 'landing_page/contact/contact_response.html', {'form': ContactForm()})
             response['HX-Trigger'] = 'contactAdded'
             return response
-        else:
-            return render(request, 'landing_page/contact/contact.html', {'form': form}, status=400)
-    else:
-        form = ContactForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'landing_page/contact/contact_response.html', {'form': form})

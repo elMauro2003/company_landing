@@ -21,7 +21,9 @@
           </div>
         </div>
         <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
+          {% if about.image %}
           <img src="{{ about.image.url }}" class="img-fluid" alt="imagen">
+          {% endif %}
         </div>
       </div>
     </div>

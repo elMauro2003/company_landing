@@ -15,4 +15,5 @@ urlpatterns = [
     #ath('admin/alt_features/', views.alt_features_list, name='alt_features_list'),
     #path('admin/alt_features/<int:pk>/edit/', views.alt_features_edit, name='alt_features_edit'),
     # Repite lo mismo para las otras secciones
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
