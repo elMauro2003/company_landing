@@ -29,16 +29,13 @@ def index(request):
     })
 
 def create_contact(request):
+    form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Formulario enviado exitosamente!")
-            response = render(request, 'landing_page/contact/contact.html', {'form': ContactForm()})
+            response = render(request, 'landing_page/contact/contact_response.html', {'form': ContactForm()})
             response['HX-Trigger'] = 'contactAdded'
             return response
-        else:
-            return render(request, 'landing_page/contact/contact.html', {'form': form}, status=400)
-    else:
-        form = ContactForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'landing_page/contact/contact_response.html', {'form': form})
