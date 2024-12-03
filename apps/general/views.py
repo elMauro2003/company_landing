@@ -17,6 +17,7 @@ def index(request):
     filters = Filter.objects.all()
     
     current_url = request.path
+    print(current_url)
     
     return render(request, 'index.html', {
         'current_url': current_url,
@@ -43,3 +44,9 @@ def create_contact(request):
             response['HX-Trigger'] = 'contactAdded'
             return response
     return render(request, 'landing_page/contact/contact_response.html', {'form': form})
+
+def service_detail(request, pk):
+    services = Services.objects.get(pk=pk)
+    faqs = services.faqs.all()
+    
+    return render(request, 'landing_page\services\service_detail.html', {'faqs': faqs})

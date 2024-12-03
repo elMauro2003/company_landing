@@ -1,0 +1,56 @@
+<!-- FAQ Section -->
+<section id="faq" class="faq section">
+
+    <!-- Section Title -->
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+      <h2>F.A.Q</h2>
+      <p>Service Features</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        
+            <div class="faq-container">
+
+                {% for faq in faqs %}
+                    {% if faq.column %}
+                        <div class="faq-item faq-active">
+                            <h3>{{faq.title}}</h3>
+                            <div class="faq-content">
+                                <p>{{faq.description}}</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+                    {% endif %}
+                {% endfor %}
+
+            </div> 
+
+        </div><!-- End Faq Column-->
+
+        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="faq-container">
+                    {% for faq in faqs %}
+                        {% if faq.column == 0 %}
+                            <div class="faq-item faq-active">
+                                <h3>{{faq.title}}</h3>
+                                <div class="faq-content">
+                                    <p>{{faq.description}}</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+        </div><!-- End Faq Column-->
+
+      </div>
+
+    </div>
+
+</section><!-- End Faq Secction-->

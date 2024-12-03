@@ -19,7 +19,7 @@ class AltFeaturesForm(forms.ModelForm):
 class ServicesForm(forms.ModelForm):
     class Meta:
         model = Services
-        fields = ['color','title', 'description', 'icon', 'button_text', 'button_link']
+        fields = ['color','title', 'description', 'icon', 'button_text']
 
 class PricingForm(forms.ModelForm):
     class Meta:
@@ -40,3 +40,8 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name','email', 'subject', 'message']
+        
+class FAQForm(forms.ModelForm):
+    class Meta:
+        model: FAQ
+        fields = ['title', 'description']

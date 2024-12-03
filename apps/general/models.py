@@ -35,10 +35,26 @@ class Services(models.Model):
     description = models.TextField(default='Available colors are: \n{ cyan, orange, teal, red, indigo, pink }')
     icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
     button_text = models.CharField(max_length=100, blank=True, null=True)
-    button_link = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+    
+class FAQ(models.Model):
+    title = models.CharField(max_length=50, null=False, blank=False)
+    description = models.TextField()
+    column = models.BooleanField(default=0)
+    service = models.ForeignKey(Services, related_name='faqs', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.title
+    
+class FeatureService(models.Model):
+    name = models.CharField(max_length=80)
+    description = models.TextField(max_length=255)
+    portfolio = models.ForeignKey(Services, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
 
 class Pricing(models.Model):
     plan_name = models.CharField(max_length=100)
@@ -51,6 +67,7 @@ class Pricing(models.Model):
 
     def __str__(self):
         return self.plan_name
+    
 
 class Testimonials(models.Model):
     client_name = models.CharField(max_length=200)
