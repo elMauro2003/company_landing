@@ -28,7 +28,7 @@
                 <h4>{{project.project_name}}</h4>
                 <p>{{project.description}}</p>
                 <a href="{{project.image.url}}" title="{{project.button1_text}}" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="{{project.button2_link}}" title="{{project.button2_text}}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="{% url "portfolio_detail" pk=project.pk %}" title="{{project.button2_text}}" class="details-link"><i class="bi bi-eye"></i></a>
               </div>
             </div>
           </div><!-- End Portfolio Item -->

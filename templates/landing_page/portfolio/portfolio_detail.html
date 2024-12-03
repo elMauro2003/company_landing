@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <!-- Features Section -->
+<section id="alt-features" class="alt-features section ">
+    <div class="container section-title mt-4" data-aos="fade-up">
+        <h2>Feature</h2>
+        <p>Some characteristics</p>
+      </div>
+    <div class="container ">
+      <div class="row gy-5">
+        <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-self-center gy-5">
+            {% for feat in project.featureportfolio_set.all %}
+            <div class="col-md-6 icon-box">
+                <i class="{{feat.icon}}"></i>
+              <div>
+                <h4>{{feat.name}}</h4>
+                <p>{{feat.description}}</p>
+              </div>
+            </div><!-- End Feature Item -->
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up" data-aos-delay="100">
+          <img src="{% if project.image %}{{project.image.url}}{% else %}{% static 'assets/img/alt-features.png' %}{% endif %} " class="img-fluid" alt="">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!--Features Section -->
+
+  <!-- Images Section -->
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Gallery</h2>
+      <p>Images of the finished project</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+          {% for image in project.galleryportfolio_set.all %}
+          <div class=" col-lg-4 col-md-6 portfolio-item isotope-item filter-{{project.filter}}">
+            <div class="portfolio-content h-100">
+              <img src="{{image.image.url}}" class="img-fluid" alt="{{image.name}}">
+              <div class="portfolio-info">
+                <h4>{{image.name}}</h4>
+                <a href="{{image.image.url}}" title="{{image.name}}" data-gallery="portfolio-gallery-app" class=" glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+             </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+    </div>
+
+  </section><!-- /Images Section -->
+{% endblock %}

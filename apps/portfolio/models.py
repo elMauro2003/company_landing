@@ -23,3 +23,24 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.project_name
+    
+
+
+
+class FeaturePortfolio(models.Model):
+    icon = models.CharField(max_length=80, default="bi bi-1-square-fill")
+    name = models.CharField(max_length=80)
+    description = models.TextField(max_length=255)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
+    
+
+class GalleryPortfolio(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='portfolio/')
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
