@@ -3,13 +3,14 @@ from django.http import JsonResponse
 from django.contrib import messages
 from .models import *
 from .forms import *
+from apps.portfolio.models import *
 
 def index(request):
     hero = Hero.objects.first()
     about = About.objects.first()  # Asumiendo que solo hay una instancia de About
     alt_feature = AltFeatures.objects.all()  # Asumiendo que solo hay una instancia de AltFeatures
     services = Services.objects.all()  # Puede haber múltiples instancias de Services
-    pricings = Pricing.objects.all()
+    pricings = Pricing.objects.all().order_by('pk')
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
     teams = Team.objects.all()

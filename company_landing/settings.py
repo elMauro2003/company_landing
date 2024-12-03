@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # Local Apps
     'apps.general',
     'apps.users',
+    'apps.portfolio',
 ]
 
 AUTHENTICATION_BACKENDS = (

@@ -1,6 +1,7 @@
 from django.db import models
+from solo.models import SingletonModel
 
-class Hero(models.Model):
+class Hero(SingletonModel):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200)
     background_image = models.ImageField(upload_to='hero/')
@@ -10,8 +11,7 @@ class Hero(models.Model):
     def __str__(self):
         return self.title
 
-class About(models.Model):
-    pinga = models.CharField(max_length=50)
+class About(SingletonModel):
     title = models.CharField(max_length=200)
     subtitle = models.TextField(null=True)
     description = models.TextField()
@@ -52,18 +52,6 @@ class Pricing(models.Model):
     def __str__(self):
         return self.plan_name
 
-class Portfolio(models.Model):
-    project_name = models.CharField(max_length=200)
-    filter = models.CharField(max_length=100, blank=False, null=False, default='app')
-    description = models.TextField()
-    image = models.ImageField(upload_to='portfolio/')
-    button1_text = models.CharField(max_length=100, blank=True, null=True)
-    button2_text = models.CharField(max_length=100, blank=True, null=True)
-    button2_link = models.URLField(blank=True, null=True)
-
-    def __str__(self):
-        return self.project_name
-
 class Testimonials(models.Model):
     client_name = models.CharField(max_length=200)
     stars = models.IntegerField(default=0)
@@ -101,9 +89,3 @@ class Contact(models.Model):
     def __str__(self):
         return self.email
     
-class Filter(models.Model):
-    filter = models.CharField(max_length=50, default='nombre_filtro', blank=False, null=False)
-    filter_name = models.CharField(max_length=50, default='Filtro', blank=False, null=False)
-    
-    def __str__(self):
-        return self.filter_name
