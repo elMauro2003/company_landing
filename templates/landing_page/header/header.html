@@ -30,7 +30,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-           {% if current_url == '/' %}   <!-- Tride use request.path  Example: {% if request.path == '/' %} values {% endif %} -->
+           {% if request.path == '/' %}   <!-- Tride use request.path  Example: {% if request.path == '/' %} values {% endif %} -->
           <li><a href="#hero" class="active">Inicio<br></a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
