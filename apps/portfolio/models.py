@@ -26,11 +26,6 @@ class Portfolio(models.Model):
         return self.project_name
     
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4551618736bdc407d6a14ba5b372f8909a655c01
 class FeaturePortfolio(models.Model):
     icon = models.CharField(max_length=80, default="bi bi-1-square-fill")
     name = models.CharField(max_length=80)
