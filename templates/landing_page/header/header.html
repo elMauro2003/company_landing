@@ -48,7 +48,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       {% if current_url == '/' %}
-      <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
+      <a class="btn-getstarted flex-md-shrink-0" href="{% url "get_started" %}">Get Started</a>
       {% endif %}
 
     </div>
