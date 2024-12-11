@@ -6,4 +6,11 @@ from apps.portfolio.models import Portfolio
 
 def portfolio_detail(request,pk):
     project=Portfolio.objects.get(pk=pk)
-    return render(request, 'landing_page/portfolio/portfolio_detail.html', {'project': project})
+    
+    is_portfolio_detail = request.path.startswith('/portfolio')
+    context = {
+        'project': project,
+        'is_portfolio_detail': is_portfolio_detail,
+    }
+    
+    return render(request, 'landing_page/portfolio/portfolio_detail.html', context)

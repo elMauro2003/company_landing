@@ -27,7 +27,7 @@
           
         {% comment %} <h1 class="sitename">Emyux</h1> {% endcomment %}
       </a>
-
+      
       <nav id="navmenu" class="navmenu">
         <ul>
            {% if request.path == '/' %}   <!-- Tride use request.path  Example: {% if request.path == '/' %} values {% endif %} -->
@@ -37,19 +37,22 @@
           <li><a href="#portfolio">Portafolio</a></li>
           <li><a href="#team">Equipo</a></li>
           <li><a href="#contact">Contacto</a></li>
-          {% else %}
+          <a class="btn-getstarted flex-md-shrink-0" href="{% url "get_started" %}">Get Started</a>
+          {% elif is_portfolio_detail %}
           <li><a href="{% url 'index' %}" class="active">Inicio<br></a></li>
           <li><a href="#alt-features">Características</a></li>
           <li><a href="#more-info">Más Información</a></li>
           <li><a href="#portfolio">Galería</a></li>
+          {% elif is_service_detail %}
+          <li><a href="{% url 'index' %}" class="active">Inicio<br></a></li>
+          <li><a href="#faq">Características</a></li>
+          <li><a href="#more-info">Más Información</a></li>
+          <li><a href="#contact">Contacto</a></li>
           {% endif %}
           
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      {% if current_url == '/' %}
-      <a class="btn-getstarted flex-md-shrink-0" href="{% url "get_started" %}">Get Started</a>
-      {% endif %}
 
     </div>
   </header>

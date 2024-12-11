@@ -54,9 +54,11 @@ def service_detail(request, pk):
     service = Services.objects.get(pk=pk)
     faqs = service.faqs.all()
     
+    is_service_detail = request.path.startswith('/service-detail')
     context = {
         'faqs': faqs,
         'service': service,
+        'is_service_detail': is_service_detail,
     }
     
     return render(request, 'landing_page\services\service_detail.html', context)
