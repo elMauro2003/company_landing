@@ -6,6 +6,7 @@ from solo.admin import SingletonModelAdmin
 admin.site.register(Hero,SingletonModelAdmin)
 admin.site.register(About,SingletonModelAdmin)
 admin.site.register(AltFeatures)
+#admin.site.register(FeatureService)
 admin.site.register(Services)
 admin.site.register(FAQ)
 admin.site.register(Pricing)

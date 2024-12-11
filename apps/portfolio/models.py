@@ -4,17 +4,17 @@ from django.db import models
 
 
 class Filter(models.Model):
-    filter = models.CharField(max_length=50, default='nombre_filtro', blank=False, null=False)
-    filter_name = models.CharField(max_length=50, default='Filtro', blank=False, null=False)
+    filter_slug = models.CharField(max_length=50, default='filter-slug', blank=False, null=False, db_default='app')
+    filter_name = models.CharField(max_length=50, default='Nombre Filtro', blank=False, null=False)
     
     def __str__(self):
         return self.filter_name
-    
-    
+     
 
 class Portfolio(models.Model):
     project_name = models.CharField(max_length=200)
-    filter = models.CharField(max_length=100, blank=False, null=False, default='app')
+    filter = models.ForeignKey(Filter, on_delete=models.CASCADE)
+    #filter = models.CharField(max_length=100, blank=False, null=False, default='app')
     description = models.TextField()
     long_description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='portfolio/')

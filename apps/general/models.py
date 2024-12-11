@@ -33,6 +33,7 @@ class Services(models.Model):
     color = models.CharField(max_length=20, default='cyan')
     title = models.CharField(max_length=200)
     description = models.TextField(default='Available colors are: \n{ cyan, orange, teal, red, indigo, pink }')
+    long_description = models.TextField(null=True, blank=True)
     icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
     button_text = models.CharField(max_length=100, blank=True, null=True)
 

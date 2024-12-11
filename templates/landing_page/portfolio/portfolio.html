@@ -15,13 +15,13 @@
         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
           <li data-filter="*" class="filter-active">All</li>
           {% for filter in filters %}
-          <li data-filter=".filter-{{filter.filter}}" class="filter-active">{{filter.filter_name}}</li>
+          <li data-filter=".filter-{{filter.filter_slug}}" class="filter-active">{{filter.filter_name}}</li>
           {% endfor %}
         </ul><!-- End Portfolio Filters -->
 
         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
           {% for project in projects %}
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{project.filter}}">
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{project.filter.filter_slug}}">
             <div class="portfolio-content h-100">
               <img src="{{project.image.url}}" class="img-fluid" alt="">
               <div class="portfolio-info">

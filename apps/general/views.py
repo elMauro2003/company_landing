@@ -14,10 +14,15 @@ def index(request):
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
     teams = Team.objects.all()
-    filters = Filter.objects.all()
+    #filters = Filter.objects.all()
+    
+    # Sacar los filtros
+    filters = set()
+    for project in portfolio:
+        filters.add(project.filter)
+        
     
     current_url = request.path
-    print(current_url)
     
     return render(request, 'index.html', {
         'current_url': current_url,
@@ -46,10 +51,15 @@ def create_contact(request):
     return render(request, 'landing_page/contact/contact_response.html', {'form': form})
 
 def service_detail(request, pk):
-    services = Services.objects.get(pk=pk)
-    faqs = services.faqs.all()
+    service = Services.objects.get(pk=pk)
+    faqs = service.faqs.all()
     
-    return render(request, 'landing_page\services\service_detail.html', {'faqs': faqs})
+    context = {
+        'faqs': faqs,
+        'service': service,
+    }
+    
+    return render(request, 'landing_page\services\service_detail.html', context)
 
 def get_started(request):
     return render(request,'started/contact.html')
