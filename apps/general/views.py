@@ -50,3 +50,6 @@ def service_detail(request, pk):
     faqs = services.faqs.all()
     
     return render(request, 'landing_page\services\service_detail.html', {'faqs': faqs})
+
+def get_started(request):
+    return render(request,'started/contact.html')

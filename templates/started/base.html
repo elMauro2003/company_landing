@@ -1,9 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en">
 
 <head>
-  <script src="{% static 'assets/js/color-modes.js'%}"></script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Emyux | {% block title %}{% endblock %} </title>
@@ -32,16 +32,10 @@
 </head>
 
 <body class="index-page">
-
-  {% include 'landing_page\header\header.html' %}
-
   <main class="main">
     {% block content %}
     {% endblock %}    
   </main>
-
-  {% include 'landing_page\footer\footer.html' %}
-
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
