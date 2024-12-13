@@ -35,9 +35,9 @@ ALLOWED_HOSTS = LIST_ALLOWED_HOSTS.split(",")
 
 INSTALLED_APPS = [
     # Unfold
-    # 'unfold',  # before django.contrib.admin
-    # "unfold.contrib.filters",  # optional, if special filters are needed
-    # "unfold.contrib.forms",
+    'unfold',  # before django.contrib.admin
+    "unfold.contrib.filters",  # optional, if special filters are needed
+    "unfold.contrib.forms",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

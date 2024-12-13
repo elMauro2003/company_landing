@@ -45,3 +45,9 @@ class FAQForm(forms.ModelForm):
     class Meta:
         model: FAQ
         fields = ['title', 'description']
+
+
+class ClientContactForm(forms.ModelForm):
+    class Meta:
+        model = ClientContact
+        fields = ['name', 'last_name', 'email', 'phone_number', 'budget', 'budget_type', 'service', 'message']

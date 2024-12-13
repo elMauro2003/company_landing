@@ -1,0 +1,148 @@
+
+{% if messages %}
+    {% for message in messages %}
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "{% if 'error' in message.tags %}error{% elif 'info' in message.tags %}info{% elif 'success' in message.tags %}success{% else %}info{% endif %}",
+                title: "{{ message }}",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    {% endfor %}
+{% endif %}
+
+<form id="myForm">
+    {% csrf_token %}
+    <div class="row gy-4">
+        <div class="col-12">
+            <div class="input-group ">
+                <input type="text" name="name" required class="form-control"  placeholder="First name" aria-label="First name" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-1-square-fill" viewBox="0 0 16 16">
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+                    </svg></span>
+                </div>
+        </div>
+        <div class="col-12">
+            <div class="input-group ">
+                <input type="text" name="last_name" required class="form-control" placeholder="Last name" aria-label="Last name" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-2-square-fill" viewBox="0 0 16 16">
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+                        </svg></span>
+                </div>
+        </div>
+        <div class="col-12">
+            <div class="input-group ">
+                <input type="email" name="email" required class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+                {% if form.email.errors %}
+                    <div class="alert alert-danger mt-2 px-2">
+                        {% for error in form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                <span class="input-group-text" id="basic-addon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-envelope-at-fill" viewBox="0 0 16 16">
+                    <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"/>
+                    <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"/>
+                    </svg></span>
+                </div>
+        </div>
+        <div class="col-12">
+            <div class="input-group ">
+                <input type="number" name="phone_number" required class="form-control" placeholder="Phone number" aria-label="Phone number" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                        </svg>
+                </span>
+                </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="input-group ">
+                <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" required width="20" height="20" fill="currentColor" class=" bi-currency-dollar" viewBox="0 0 16 16">
+                        <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
+                        </svg>
+                </span>
+                <input required name="budget" type="number" min=0 placeholder="Budget" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-text p-0">
+                        <select name="budget_type" required class="form-select" id="inputGroupSelect01">
+                            <option value="1">EUR</option>
+                            <option value="2">USD</option>
+                        </select>
+                </span>
+                </div>
+        </div>
+        <div class="col-md-12">
+        <div class="input-group ">
+            <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-code-slash" viewBox="0 0 16 16">
+                    <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+                    </svg>
+            </span>
+            <select name="service" required class="form-select" id="inputGroupSelect01">
+                <option >Select service</option>
+                <option value="1">Custom software</option>
+                <option value="2">Artificial intelligence</option>
+                <option value="2">Automation</option>
+                <option value="2">Other...</option>
+                </select>
+            </div>
+    </div>
+        <div class="col-12">
+            <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required>{% if form.message.value %}{{form.message.value}}{% endif %}</textarea>
+            {% if form.message.errors %}
+            <div class="alert alert-danger mt-2 px-2">
+                {% for error in form.message.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-12 ">
+            <button class="btn btn-primary" type="button" id="submitBtn">Send Message</button>
+            <!--<button type="submit" class="btn btn-get-started w-100">Send Message</button>-->
+        </div>
+    </div>
+    
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        Swal.fire({
+            text: 'Asegúrate de que los datos sean lo más preciso posible antes de enviar el formulario. De esta forma te podremos ayudar mucho mejor a resolver tu problema.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, confirmar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Usar HTMX para enviar el formulario
+                htmx.ajax('POST', '{% url "client_contact" %}', {
+                    target: '#form-change',
+                    swap: 'innerHTML',
+                    values: {
+                        'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'name': document.querySelector('[name=name]').value,
+                        'last_name': document.querySelector('[name=last_name]').value,
+                        'email': document.querySelector('[name=email]').value,
+                        'phone_number': document.querySelector('[name=phone_number]').value,
+                        'budget': document.querySelector('[name=budget]').value,
+                        'budget_type': document.querySelector('[name=budget_type]').value,
+                        'service': document.querySelector('[name=service]').value,
+                        'message': document.querySelector('[name=message]').value
+                    }
+                });
+            }
+        });
+    });
+</script>

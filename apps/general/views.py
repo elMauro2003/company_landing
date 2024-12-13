@@ -50,6 +50,23 @@ def create_contact(request):
             return response
     return render(request, 'landing_page/contact/contact_response.html', {'form': form})
 
+def client_contact(request):
+    form = ClientContactForm()
+    if request.method == 'POST':
+        form = ClientContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Formulario enviado exitosamente!")
+            response = render(request, 'started/contact_response.html', {'form': ClientContactForm()})
+            response['HX-Trigger'] = 'contactAdded'
+            return response
+        else:
+            messages.error(request, "Error al enviar el formulario")
+            return render(request, 'started/contact_response.html', {'form': form})
+        
+    return render(request, 'started/contact_response.html', {'form': form})
+
+
 def service_detail(request, pk):
     service = Services.objects.get(pk=pk)
     faqs = service.faqs.all()

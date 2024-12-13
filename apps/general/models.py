@@ -1,5 +1,6 @@
 from django.db import models
 from solo.models import SingletonModel
+from datetime import datetime
 
 class Hero(SingletonModel):
     title = models.CharField(max_length=200)
@@ -98,12 +99,25 @@ class Team(models.Model):
         return self.member_name
 
 class Contact(models.Model):
-    
     name = models.CharField( max_length=100,null=True, blank=True)
     email = models.EmailField()
     subject = models.CharField(max_length=350, null=True, blank=True)
     message = models.TextField(default='', null=False, blank=False)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
         return self.email
     
+class ClientContact(models.Model):
+    name = models.CharField( max_length=100,null=False, blank=False)
+    last_name = models.CharField(max_length=100,null=False, blank=False)
+    email = models.EmailField()
+    phone_number = models.IntegerField(null=False, blank=False)
+    budget = models.DecimalField(max_digits=100, decimal_places=2, null=False, blank=False)
+    budget_type = models.CharField(max_length=10, null=False, blank=False)
+    service = models.CharField(max_length=100, null=False, blank=False)
+    message = models.TextField(null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
