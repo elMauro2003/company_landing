@@ -78,7 +78,7 @@ def service_detail(request, pk):
         'is_service_detail': is_service_detail,
     }
     
-    return render(request, 'landing_page\services\service_detail.html', context)
+    return render(request, 'landing_page/services/service_detail.html', context)
 
 def get_started(request):
     return render(request,'started/contact.html')
