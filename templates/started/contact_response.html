@@ -110,7 +110,7 @@
         <!-- Button trigger modal -->
         <div class="col-12">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="terms_is_active" id="flexCheckDefault">
+            <input id="terms_is_active" class="form-check-input" type="checkbox" name="terms_is_active" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               Acepto los 
               <a type="button" class="link" data-bs-toggle="modal" data-bs-target="#ModalTermsAndConditions">
@@ -130,8 +130,19 @@
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     document.getElementById('submitBtn').addEventListener('click', function() {
+
+        if (!document.querySelector('[name=terms_is_active]').checked) {
+            Swal.fire({
+                text: 'Debe aceptar los términos y condiciones para continuar.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }    
+
         Swal.fire({
             text: 'Asegúrate de que los datos sean lo más preciso posible antes de enviar el formulario. De esta forma te podremos ayudar mucho mejor a resolver tu problema.',
             icon: 'info',

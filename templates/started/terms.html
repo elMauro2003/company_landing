@@ -8,17 +8,16 @@
             
             <ul class="d-grid gap-3 my-5 list-unstyled small">
                 {% for condition in conditions %}
-              <li class="d-flex gap-2">
-                <div class="bg-dark px-3 rounded d-flex justify-content-center align-items-center text-white">
-                    {{condition.pk}}
-                </div>
-                <div>
-                  <h5 class="mb-0">{{condition.name}}</h5>
-                  {{condition.description}}
-                </div>
-              </li>
-              
-              {% endfor %}
+                  <li class="d-flex gap-2">
+                    <div class="bg-dark px-3 rounded d-flex justify-content-center align-items-center text-white">
+                        {{condition.pk}}
+                    </div>
+                    <div>
+                      <h5 class="mb-0">{{condition.name}}</h5>
+                      {{condition.description}}
+                    </div>
+                  </li>
+                {% endfor %}
             </ul>
             {% endif %}
             <button type="button" class="btn btn-lg btn btn-get-started mt-5 w-100" data-bs-dismiss="modal">Entendido<i class="ms-2 bi bi-hand-thumbs-up-fill"></i></button>

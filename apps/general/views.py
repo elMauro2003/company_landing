@@ -54,6 +54,13 @@ def client_contact(request):
     form = ClientContactForm()
     if request.method == 'POST':
         form = ClientContactForm(request.POST)
+        
+        # Verificar si el checkbox está presente en el request
+        terms_is_active = request.POST.get('terms_is_active', 'off')
+        print(terms_is_active)
+        #for key, value in request.POST.items():
+            #print(f"{key}: {value}")
+        
         if form.is_valid():
             form.save()
             messages.success(request, "Formulario enviado exitosamente!")
@@ -81,9 +88,9 @@ def service_detail(request, pk):
     return render(request, 'landing_page/services/service_detail.html', context)
 
 def get_started(request):
-    term= Term.objects.first()
-    conditions=TermPoint.objects.filter(term=term).order_by('pk')
-    context={
-        'conditions':conditions
+    term = Term.objects.first()
+    conditions = TermPoint.objects.filter(term=term).order_by('pk')
+    context = {
+        'conditions': conditions
     }
-    return render(request,'started/contact.html',context)
+    return render(request, 'started/contact.html', context)
