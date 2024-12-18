@@ -118,6 +118,22 @@ class ClientContact(models.Model):
     service = models.CharField(max_length=100, null=False, blank=False)
     message = models.TextField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    terms_is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.email
+    
+
+class Term(SingletonModel):
+    
+    def __str__(self):
+        return 'Términos y condiciones'
+    
+class TermPoint(models.Model):
+    term = models.ForeignKey(Term, on_delete=models.CASCADE)
+    name = models.CharField( max_length=150)
+    description = models.TextField()
+   
+    
+    def __str__(self):
+        return self.name

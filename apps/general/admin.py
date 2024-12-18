@@ -33,3 +33,15 @@ class AdminServices(admin.ModelAdmin):
     list_filter = ('color',)
     inlines = [AdminFAQ,]
     list_per_page = 100
+    
+    
+class TermPoint(admin.TabularInline):
+    model = TermPoint
+    raw_id_fields = ('term',)
+    list_display = ('term',)
+    extra = 0
+
+@admin.register(Term)
+class AdminTerm(SingletonModelAdmin):
+    list_display = ['pk']
+    inlines = [TermPoint,]

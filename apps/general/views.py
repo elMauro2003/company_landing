@@ -81,4 +81,9 @@ def service_detail(request, pk):
     return render(request, 'landing_page/services/service_detail.html', context)
 
 def get_started(request):
-    return render(request,'started/contact.html')
+    term= Term.objects.first()
+    conditions=TermPoint.objects.filter(term=term).order_by('pk')
+    context={
+        'conditions':conditions
+    }
+    return render(request,'started/contact.html',context)
