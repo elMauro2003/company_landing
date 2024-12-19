@@ -55,9 +55,7 @@ def client_contact(request):
     if request.method == 'POST':
         form = ClientContactForm(request.POST)
         
-        # Verificar si el checkbox está presente en el request
-        terms_is_active = request.POST.get('terms_is_active', 'off')
-        print(terms_is_active)
+        #print(terms_is_active)
         #for key, value in request.POST.items():
             #print(f"{key}: {value}")
         

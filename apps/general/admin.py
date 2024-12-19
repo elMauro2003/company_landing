@@ -14,8 +14,8 @@ admin.site.register(Contact)
 
 @admin.register(ClientContact)
 class AdminClientContact(admin.ModelAdmin):
-    list_display = ['name', 'last_name', 'email', 'phone_number', 'service', 'created_at',]
-    search_fields = ['name', 'last_name', 'email', 'phone_number', 'service',]
+    list_display = ['first_name', 'last_name', 'email', 'phone_number', 'service', 'created_at',]
+    search_fields = ['first_name', 'last_name', 'email', 'phone_number', 'service',]
     list_filter = ('service',)
     list_per_page = 100
     
