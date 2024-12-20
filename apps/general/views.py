@@ -72,11 +72,11 @@ def client_contact(request):
     return render(request, 'started/contact_response.html', {'form': form})
 
 
-def service_detail(request, pk):
-    service = Services.objects.get(pk=pk)
+def service_detail(request, slug):
+    service = get_object_or_404(Services, slug=slug)
     faqs = service.faqs.all()
     
-    is_service_detail = request.path.startswith('/service-detail')
+    is_service_detail = request.path.startswith('/service')
     context = {
         'faqs': faqs,
         'service': service,
