@@ -30,7 +30,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-6">
-                    <input type="email" class="form-control" value="{% if form.email.value %}{{form.email.value}}{% endif %}" name="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" value="{% if form.email.value %}{{form.email.value}}{% endif %}" name="email" placeholder="Email" required>
                     {% if form.email.errors %}
                     <div class="alert alert-danger mt-2 px-2">
                         {% for error in form.email.errors %}
@@ -40,7 +40,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-12">
-                  <input type="text" class="form-control" value="{% if form.subject.value %}{{form.subject.value}}{% endif %}" name="subject" placeholder="Your Subject" required>
+                  <input type="text" class="form-control" value="{% if form.subject.value %}{{form.subject.value}}{% endif %}" name="subject" placeholder=" Subjecto" required>
                   {% if form.email.errors %}
                   <div class="alert alert-danger mt-2 px-2">
                       {% for error in form.subject.errors %}
@@ -50,7 +50,7 @@
                   {% endif %}
               </div>
                 <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required>{% if form.message.value %}{{form.message.value}}{% endif %}</textarea>
+                    <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required>{% if form.message.value %}{{form.message.value}}{% endif %}</textarea>
                     {% if form.message.errors %}
                     <div class="alert alert-danger mt-2 px-2">
                         {% for error in form.message.errors %}
@@ -61,7 +61,7 @@
                 </div>
                 
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
             </div>
             

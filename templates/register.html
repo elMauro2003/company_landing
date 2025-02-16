@@ -9,7 +9,7 @@
     <meta name="description" content="Iniciar sesión de usuario">
     <meta name="author" content="MangelRyujin and elMauro2003">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>SINFIMAC | Registro</title>
+    <title>Emyux | Registro</title>
 
     <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -23,6 +23,9 @@
 <main class="form-signin w-100 m-auto">
   <form class="text-center" method="post">
     {% csrf_token %}
+    <a class="d-flex justify-content-center " href="{% url "index" %}">
+      <img class="text-center" src="{% static 'assets/img/logo.svg' %}" width="200" height="200">
+  </a>
     <h1 class="h3 mb-3 text-center fw-normal">Registro</h1>
 
     <div class=" input-group ">
@@ -126,7 +129,7 @@
           </a>
     </div>
     <button class="btn btn-bd-primary w-100 py-2 " type="submit">Registrar</button>
-    <p class="mt-4 mb-2 text-body-secondary">&copy; Angeles Cubas 2025</p>
+    <p class="mt-4 mb-2 text-body-secondary">&copy; Emyux 2025</p>
   </form>
 </main>
     <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>

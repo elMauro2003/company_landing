@@ -3,10 +3,11 @@
 
 {% block content %}
   <!-- Features Section -->
+   {% if project.featureportfolio_set.all %}
 <section id="alt-features" class="alt-features section ">
     <div class="container section-title mt-4" data-aos="fade-up">
         <h2>{{project.project_name}}</h2>
-        <p>Some characteristics</p>
+        <p>Algunas caracteristicas</p>
       </div>
     <div class="container ">
       <div class="row gy-5">
@@ -32,12 +33,14 @@
     </div>
 
   </section><!--Features Section -->
+  {% endif %}
 
+  {% if project.long_description %}
   <!-- Long Description Section -->
   <section id="more-info" class="alt-features section ">
     <div class="container section-title mt-4" data-aos="fade-up">
-        <h2>Description</h2>
-        <p>More Information</p>
+        <h2>Descripción</h2>
+        <p>Más información</p>
       </div>
 
     <div class="container" data-aos="fade-up">
@@ -52,14 +55,15 @@
     </div>
 
   </section><!--Long Description Section -->
-
+  {% endif %}
   <!-- Images Section -->
+   {% if project.galleryportfolio_set.all %}
 <section id="portfolio" class="portfolio section">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Gallery</h2>
-      <p>Images of the finished project</p>
+      <h2>Galería</h2>
+      <p>Imágenes</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -81,4 +85,5 @@
     </div>
 
   </section><!-- /Images Section -->
+  {% endif %}
 {% endblock %}

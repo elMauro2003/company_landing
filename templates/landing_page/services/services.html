@@ -1,11 +1,12 @@
 {% load static %}
 <!-- Services Section -->
-<section id="services" class="services section">
+ {% if services %}
+ <section id="services" class="services section">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Services</h2>
-      <p>Check Our Services<br></p>
+      <h2>Servicios</h2>
+      <p>Chequea todos los servicios<br></p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -27,3 +28,4 @@
     </div>
 
   </section><!-- /Services Section -->
+  {% endif %}

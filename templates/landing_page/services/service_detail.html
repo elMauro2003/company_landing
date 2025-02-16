@@ -3,12 +3,13 @@
 {% block content %}
 
 <!-- FAQ Section -->
+ {% if faqs %}
 <section id="faq" class="faq section">
 
     <!-- Section Title -->
     <div class="container section-title aos-init aos-animate" data-aos="fade-up">
       <h2>F.A.Q</h2>
-      <p>Service Features</p>
+      <p>Características</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -58,13 +59,13 @@
     </div>
 
 </section><!-- End Faq Secction-->
-
-
+{% endif %}
+{% if service.long_description %}
 <!-- Long Description Section -->
 <section id="more-info" class="alt-features section ">
     <div class="container section-title mt-4" data-aos="fade-up">
-        <h2>Description</h2>
-        <p>More Information</p>
+        <h2>Descripción</h2>
+        <p>Más información</p>
       </div>
 
     <div class="container" data-aos="fade-up">
@@ -79,7 +80,7 @@
     </div>
 
   </section><!--Long Description Section -->
-
+  {% endif %}
 {% include 'landing_page/contact/contact.html' %}
 
 {% endblock %}

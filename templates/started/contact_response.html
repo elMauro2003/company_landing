@@ -18,7 +18,7 @@
     <div class="row gy-4">
         <div class="col-12">
             <div class="input-group ">
-                <input type="text" name="name" required class="form-control"  placeholder="First name" aria-label="First name" aria-describedby="basic-addon2">
+                <input type="text" name="name" required class="form-control"  placeholder="Nombre" aria-label="First name" aria-describedby="basic-addon2">
                 <span class="input-group-text" id="basic-addon2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-1-square-fill" viewBox="0 0 16 16">
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-12">
             <div class="input-group ">
-                <input type="text" name="last_name" required class="form-control" placeholder="Last name" aria-label="Last name" aria-describedby="basic-addon2">
+                <input type="text" name="last_name" required class="form-control" placeholder="Apellidos" aria-label="Last name" aria-describedby="basic-addon2">
                 <span class="input-group-text" id="basic-addon2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-2-square-fill" viewBox="0 0 16 16">
                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
@@ -56,7 +56,7 @@
                     {% endif %}
         <div class="col-12">
             <div class="input-group ">
-                <input type="number" name="phone_number" required class="form-control" placeholder="Phone number" aria-label="Phone number" aria-describedby="basic-addon2">
+                <input type="number" name="phone_number" required class="form-control" placeholder="# de celular" aria-label="Phone number" aria-describedby="basic-addon2">
                 <span class="input-group-text" id="basic-addon2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-telephone-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
@@ -72,7 +72,7 @@
                         <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
                         </svg>
                 </span>
-                <input required name="budget" type="number" min=0 placeholder="Budget" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input required name="budget" type="number" min=0 placeholder="Presupuesto" class="form-control" aria-label="Amount (to the nearest dollar)">
                 <span class="input-group-text p-0">
                         <select name="budget_type" required class="form-select" id="inputGroupSelect01">
                             <option value="1">EUR</option>
@@ -89,16 +89,15 @@
                     </svg>
             </span>
             <select name="service" required class="form-select" id="inputGroupSelect01">
-                <option >Select service</option>
-                <option value="1">Custom software</option>
-                <option value="2">Artificial intelligence</option>
-                <option value="2">Automation</option>
+                <option >Selecciona servicios</option>
+                <option value="1">Desarrollo de software</option>
+                <option value="2">Automatizaciones</option>
                 <option value="2">Other...</option>
                 </select>
             </div>
     </div>
         <div class="col-12">
-            <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required>{% if form.message.value %}{{form.message.value}}{% endif %}</textarea>
+            <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required>{% if form.message.value %}{{form.message.value}}{% endif %}</textarea>
             {% if form.message.errors %}
             <div class="alert alert-danger mt-2 px-2">
                 {% for error in form.message.errors %}
@@ -121,7 +120,7 @@
         </div>
         
         <div class="col-12 ">
-            <a href="#submitBtn" type="submit" class="btn btn-get-started" id="submitBtn">Send Message<i class="bi bi-send-fill"></i></a>
+            <a href="#submitBtn" type="submit" class="btn btn-get-started" id="submitBtn">Enviar<i class="bi bi-send-fill"></i></a>
             {% comment %} <button class="btn btn-getstarted " type="button" id="submitBtn">Send Message</button> {% endcomment %}
             <!--<button type="submit" class="btn btn-get-started w-100">Send Message</button>-->
         </div>

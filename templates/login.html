@@ -9,7 +9,7 @@
     <meta name="description" content="Iniciar sesión de usuario">
     <meta name="author" content="MangelRyujin and elMauro2003">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>SINFIMAC | Inicio de sesión</title>
+    <title>Emyux | Inicio de sesión</title>
 
     <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -23,7 +23,9 @@
 <main class="form-signin w-100 m-auto">
   <form class="text-center" method="post">
     {% csrf_token %}
-    <img class="mb-3" src="{% static "assets/img/logo.png" %}" alt="" width="122" height="107">
+    <a class="d-flex justify-content-center " href="{% url "index" %}">
+      <img class="text-center" src="{% static 'assets/img/logo.svg' %}" width="200" height="200">
+  </a>
     <h1 class="h3 mb-3 text-center fw-normal">Inicio de sesión</h1>
 
     <div class=" input-group mt-4">
@@ -91,7 +93,7 @@
       </svg>Github
       </button>
     </div>
-    <p class="mt-4 mb-2 text-center text-body-secondary">&copy; Remiux 2025</p>
+    <p class="mt-4 mb-2 text-center text-body-secondary">&copy; Emyux 2025</p>
   </div>
 </main>
     <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>

@@ -1,10 +1,11 @@
 {% load static %}
 <!-- About Section  -->
+ {% if about %}
 <section id="about" class="about section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="container section-title" data-aos="fade-up">
-        <h2>About us</h2>
-        <p>WHO WE ARE?</p>
+        <h2>Sobre nosotros</h2>
+        <p>Quienes somos?</p>
       </div>
       <div class="row gx-0">
         <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
@@ -28,3 +29,5 @@
       </div>
     </div>
 </section><!-- /About Section -->
+
+{% endif %}
