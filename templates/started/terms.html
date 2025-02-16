@@ -1,28 +1,81 @@
 <!-- Modal -->
-<div class="modal  fade" id="ModalTermsAndConditions" tabindex="-1" aria-labelledby="ModalTerms" aria-hidden="true">
-    <div class="modal-dialog " role="document">
+<div class="modal fade" id="ModalTermsAndConditions" tabindex="-1" aria-labelledby="ModalTerms" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content rounded-4 shadow">
-          <div class="modal-body p-3">
-            <h2 class="fw-bold mb-0">Términos y condiciones</h2>
-            {% if conditions %}
-            
-            <ul class="d-grid gap-3 my-5 list-unstyled small">
-                {% for condition in conditions %}
-              <li class="d-flex gap-2">
-                <div class="bg-dark px-3 rounded d-flex justify-content-center align-items-center text-white">
-                    {{condition.pk}}
+            <div class="modal-body p-3">
+                <h2 class="fw-bold mb-0">Términos y condiciones</h2>
+                <hr>
+                <div class="terms-container">
+                    {% if conditions %}
+                    <ul class="d-grid gap-3 my-2 list-unstyled small">
+                        {% for condition in conditions %}
+                        <li class="d-flex gap-2 align-items-start">
+                            <div class="bullet-point"></div>
+                            <div>
+                                <h5 class="mb-0">{{ condition.name }}</h5>
+                                <div class="condition-description">
+                                    {% with condition.description.split as words %}
+                                        {% if words|length > 40 %}
+                                            <span class="short-description">{{ words|slice:":40"|join:" " }}...</span>
+                                            <span class="full-description d-none">{{ condition.description }}</span>
+                                            <button type="button" class="btn btn-link p-0 toggle-description">Mostrar más</button>
+                                        {% else %}
+                                            {{ condition.description }}
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
-                <div>
-                  <h5 class="mb-0">{{condition.name}}</h5>
-                  {{condition.description}}
-                </div>
-              </li>
-              
-              {% endfor %}
-            </ul>
-            {% endif %}
-            <button type="button" class="btn btn-lg btn btn-get-started mt-5 w-100" data-bs-dismiss="modal">Entendido<i class="ms-2 bi bi-hand-thumbs-up-fill"></i></button>
-          </div>
+                <hr>
+                <button type="button" class="btn btn-lg btn-get-started mt-2 w-100" data-bs-dismiss="modal">Entendido<i class="ms-2 bi bi-hand-thumbs-up-fill"></i></button>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
+</div>
+
+<style>
+  .bullet-point {
+      width: 10px;
+      height: 10px;
+      background-color: black;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+  }
+  .condition-description {
+      margin-top: 0.5rem;
+  }
+  .toggle-description {
+      color: blue;
+      cursor: pointer;
+  }
+  .terms-container {
+      max-height: 60vh; 
+      overflow-y: auto;
+      margin-bottom: 1rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.toggle-description').forEach(function(button) {
+          button.addEventListener('click', function() {
+              const shortDescription = this.previousElementSibling.previousElementSibling;
+              const fullDescription = this.previousElementSibling;
+              if (fullDescription.classList.contains('d-none')) {
+                  shortDescription.classList.add('d-none');
+                  fullDescription.classList.remove('d-none');
+                  this.textContent = 'Mostrar menos';
+              } else {
+                  shortDescription.classList.remove('d-none');
+                  fullDescription.classList.add('d-none');
+                  this.textContent = 'Mostrar más';
+              }
+          });
+      });
+  });
+</script>

@@ -1,0 +1,23 @@
+/* TEAM */
+
+    <empresa>
+
+    CEO: <nombre>
+
+    CTO/Backend: <nombre>
+    Site: <url>
+    Mastodon: @<usuario>
+    X: @<usuario>
+    From: <ciudad>, <pais>
+
+    Graphic and UI/UX designer: <nombre>
+
+    Frontend Developer and Web designer: <nombre>
+
+/* SITE */
+
+    Last update: 
+    Language: English, Español, Catalán
+    Standards: HTML5, CSS3
+    Components: Quasar, VueJS
+    IDE: WebStorm, PyCharm, VSCode, Emacs

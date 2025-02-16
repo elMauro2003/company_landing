@@ -1,6 +1,8 @@
 from django.db import models
 from solo.models import SingletonModel
 from datetime import datetime
+from django.utils.text import slugify
+from django.urls import reverse
 
 class Hero(SingletonModel):
     title = models.CharField(max_length=200)
@@ -33,10 +35,18 @@ class AltFeatures(models.Model):
 class Services(models.Model):
     color = models.CharField(max_length=20, default='cyan')
     title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True,)
     description = models.TextField(default='Available colors are: \n{ cyan, orange, teal, red, indigo, pink }')
     long_description = models.TextField(null=True, blank=True)
     icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
     button_text = models.CharField(max_length=100, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Services, self).save(*args, **kwargs)
+        
+    def get_absolute_url(self): 
+        return reverse("service_detail", kwargs={"slug": self.slug})
 
     def __str__(self):
         return self.title
@@ -109,7 +119,7 @@ class Contact(models.Model):
         return self.email
     
 class ClientContact(models.Model):
-    name = models.CharField( max_length=100,null=False, blank=False)
+    first_name = models.CharField( max_length=100,null=False, blank=False)
     last_name = models.CharField(max_length=100,null=False, blank=False)
     email = models.EmailField()
     phone_number = models.IntegerField(null=False, blank=False)

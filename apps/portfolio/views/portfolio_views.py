@@ -4,8 +4,8 @@ from apps.portfolio.models import Portfolio
 
 # Create your views here.
 
-def portfolio_detail(request,pk):
-    project=Portfolio.objects.get(pk=pk)
+def portfolio_detail(request,slug):
+    project=Portfolio.objects.get(slug=slug)
     
     is_portfolio_detail = request.path.startswith('/portfolio')
     context = {

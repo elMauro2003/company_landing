@@ -1,0 +1,16 @@
+{% load  custom_tags %}
+{% url_absolute "index" %}
+
+{# Services #}
+{% if services %}
+  {% for url_service in services %}
+    {{ url_service }}
+  {% endfor %}
+{% endif %}
+
+{# Portfolio #}
+{% if projects %}
+  {% for url_project in projects %}
+    {{ url_project }}
+  {% endfor %}
+{% endif %}

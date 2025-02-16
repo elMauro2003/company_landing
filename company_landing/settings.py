@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'apps.general',
     'apps.users',
     'apps.portfolio',
+    'seo',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -65,6 +66,8 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
+DOMAIN_URL = "emyux.com"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

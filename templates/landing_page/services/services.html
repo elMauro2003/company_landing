@@ -18,7 +18,7 @@
             <i class="{{service.icon}} icon"></i>
             <h3>{{service.title}}</h3>
             <p>{{service.description}}</p>
-            <a href="{% url 'serivce_detail' pk=service.pk %}" class="read-more stretched-link"><span>{{service.button_text}}</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{% url 'service_detail' slug=service.slug %}" class="read-more stretched-link"><span>{{service.button_text}}</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div><!-- End Service Item -->
         {% endfor %}

@@ -50,4 +50,10 @@ class FAQForm(forms.ModelForm):
 class ClientContactForm(forms.ModelForm):
     class Meta:
         model = ClientContact
-        fields = ['name', 'last_name', 'email', 'phone_number', 'budget', 'budget_type', 'service', 'message']
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'budget', 'budget_type', 'service', 'message']
+        
+    def clean_service(self):
+        service = self.cleaned_data.get('service')
+        if service == "Select service":
+            raise forms.ValidationError("Debe seleccionar un servicio válido.")
+        return service        
