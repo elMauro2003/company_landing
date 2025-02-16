@@ -97,13 +97,13 @@ class Team(models.Model):
     description = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to='team/')
     media1_url = models.URLField(blank=True, null=True)
-    media1_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
+    media1_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill',blank=True, null=True)
     media2_url = models.URLField(blank=True, null=True)
-    media2_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
+    media2_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill',blank=True, null=True)
     media3_url = models.URLField(blank=True, null=True)
-    media3_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
+    media3_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill',blank=True, null=True)
     media4_url = models.URLField(blank=True, null=True)
-    media4_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
+    media4_icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill',blank=True, null=True)
 
     def __str__(self):
         return self.member_name
