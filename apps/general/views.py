@@ -13,7 +13,7 @@ def index(request):
     pricings = Pricing.objects.all().order_by('pk')
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
-    teams = Team.objects.all()
+    teams = Team.objects.all().order_by('id')
     #filters = Filter.objects.all()
     
     # Sacar los filtros
