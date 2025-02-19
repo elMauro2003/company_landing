@@ -4,13 +4,22 @@ from solo.admin import SingletonModelAdmin
 # Register your models here.
 
 admin.site.register(Hero,SingletonModelAdmin)
-admin.site.register(About,SingletonModelAdmin)
+
 admin.site.register(AltFeatures)
 
 admin.site.register(Pricing)
 admin.site.register(Testimonials)
 admin.site.register(Team)
 admin.site.register(Contact)
+
+admin.site.register(PricingSection, SingletonModelAdmin)
+admin.site.register(TestimonialSection, SingletonModelAdmin)
+admin.site.register(TeamSection, SingletonModelAdmin)
+admin.site.register(ContactSection, SingletonModelAdmin)
+admin.site.register(ServiceSection, SingletonModelAdmin)
+admin.site.register(PortfolioSection, SingletonModelAdmin)
+admin.site.register(FAQSection, SingletonModelAdmin)
+
 
 @admin.register(ClientContact)
 class AdminClientContact(admin.ModelAdmin):
@@ -45,3 +54,15 @@ class TermPoint(admin.TabularInline):
 class AdminTerm(SingletonModelAdmin):
     list_display = ['pk']
     inlines = [TermPoint,]
+
+
+class TextAboutPoint(admin.TabularInline):
+    model = TextAbout
+    raw_id_fields = ('about',)
+    list_display = ('about',)
+    extra = 0
+
+@admin.register(About)
+class AdminAbout(SingletonModelAdmin):
+    list_display = ['pk','title','subtitle']
+    inlines = [TextAboutPoint,]

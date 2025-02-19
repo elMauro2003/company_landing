@@ -4,16 +4,23 @@
 <section id="about" class="about section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Sobre nosotros</h2>
-        <p>Quienes somos?</p>
+        <h2>{{about.title_section_one}}</h2>
+        <p>{{about.title_section_two}}</p>
       </div>
       <div class="row gx-0">
         <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
           <div class="content">
             <h3>{{ about.title }}</h3>
             <h2>{{ about.subtitle }}</h2>
-            <p>{{ about.description }}</p>
-            <div class="text-center text-lg-start">
+            <div class="d-block">
+            {% for text in about.text_about.all %}
+            
+              <p class="py-1 my-1">{{ text.description }}</p>
+           
+              
+            {% endfor %}
+          </div>
+            <div class="text-center text-lg-start mt-4">
               <a href="{{ about.button_link }}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>{{ about.button_text }}</span>
                 <i class="bi bi-arrow-right"></i>

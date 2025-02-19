@@ -15,24 +15,90 @@ class Hero(SingletonModel):
         return self.title
 
 class About(SingletonModel):
+    title_section_one = models.CharField(max_length=50,default='principal')
+    title_section_two = models.CharField(max_length=100,default='secundario')
     title = models.CharField(max_length=200)
     subtitle = models.TextField(null=True)
-    description = models.TextField()
+    
     image = models.ImageField(upload_to='about/')
     button_text = models.CharField(max_length=100, blank=True, null=True)
     button_link = models.URLField(blank=True, null=True)
 
+class TextAbout(models.Model):
+    about= models.ForeignKey(About,on_delete=models.CASCADE,related_name='text_about')
+    description = models.TextField()
+    
+
+
+class ServiceSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
     def __str__(self):
-        return self.title
+        return self.title_section_one
+
+
+class PortfolioSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
+    
+class ContactSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
+
+class PricingSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
+
+class TeamSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
+    
+class FAQSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
+
+    
+    
+class TestimonialSection(SingletonModel):
+    title_section_one = models.CharField(max_length=50)
+    title_section_two = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.title_section_one
 
 class AltFeatures(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
+    
     def __str__(self):
         return self.title
 
 class Services(models.Model):
+    
     color = models.CharField(max_length=20, default='cyan')
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True,)

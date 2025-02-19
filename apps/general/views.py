@@ -14,7 +14,16 @@ def index(request):
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
     teams = Team.objects.all().order_by('id')
-    #filters = Filter.objects.all()
+    
+
+    pricings_title = PricingSection.objects.first()
+    portfolio_title = PortfolioSection.objects.first()
+    testimonials_title = TestimonialSection.objects.first()
+    team_title = TeamSection.objects.first()
+    contact_title = ContactSection.objects.first()
+    service_title = ServiceSection.objects.first()
+    faq_title = FAQSection.objects.first()
+   
     
     # Sacar los filtros
     filters = set()
@@ -36,6 +45,14 @@ def index(request):
         'teams': teams,
         'filters': filters,
         'current_url': current_url,
+        
+        'faq_title': faq_title,
+        'pricings_title': pricings_title,
+        'portfolio_title': portfolio_title,
+        'testimonials_title': testimonials_title,
+        'team_title': team_title,
+        'contact_title': contact_title,
+        'service_title': service_title,
     })
 
 def create_contact(request):

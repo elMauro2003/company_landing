@@ -9,7 +9,7 @@ class HeroForm(forms.ModelForm):
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['title', 'description', 'image', 'button_text', 'button_link']
+        fields = ['title', 'image', 'button_text', 'button_link']
 
 class AltFeaturesForm(forms.ModelForm):
     class Meta:
