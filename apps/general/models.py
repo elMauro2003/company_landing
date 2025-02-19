@@ -213,3 +213,11 @@ class TermPoint(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Footer(SingletonModel):
+    X_link = models.URLField(blank=True, null=True)
+    facebook_link = models.URLField(blank=True, null=True)
+    instagram_link = models.URLField(blank=True, null=True)
+    linkedin_link = models.URLField(blank=True, null=True)
+    

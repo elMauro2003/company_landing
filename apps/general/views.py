@@ -14,7 +14,7 @@ def index(request):
     portfolio = Portfolio.objects.all()
     testimonials = Testimonials.objects.all()
     teams = Team.objects.all().order_by('id')
-    
+    footer = Footer.objects.first()
 
     pricings_title = PricingSection.objects.first()
     portfolio_title = PortfolioSection.objects.first()
@@ -45,6 +45,7 @@ def index(request):
         'teams': teams,
         'filters': filters,
         'current_url': current_url,
+        'footer': footer,
         
         'faq_title': faq_title,
         'pricings_title': pricings_title,

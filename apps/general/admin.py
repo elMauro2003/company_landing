@@ -11,6 +11,7 @@ admin.site.register(Pricing)
 admin.site.register(Testimonials)
 admin.site.register(Team)
 admin.site.register(Contact)
+admin.site.register(Footer,SingletonModelAdmin)
 
 admin.site.register(PricingSection, SingletonModelAdmin)
 admin.site.register(TestimonialSection, SingletonModelAdmin)
