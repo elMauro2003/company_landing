@@ -8,11 +8,11 @@ from apps.portfolio.models import *
 def index(request):
     hero = Hero.objects.first()
     about = About.objects.first()  # Asumiendo que solo hay una instancia de About
-    alt_feature = AltFeatures.objects.all()  # Asumiendo que solo hay una instancia de AltFeatures
-    services = Services.objects.all()  # Puede haber múltiples instancias de Services
+    alt_feature = AltFeatures.objects.all().order_by('pk')  # Asumiendo que solo hay una instancia de AltFeatures
+    services = Services.objects.all().order_by('pk')  # Puede haber múltiples instancias de Services
     pricings = Pricing.objects.all().order_by('pk')
-    portfolio = Portfolio.objects.all()
-    testimonials = Testimonials.objects.all()
+    portfolio = Portfolio.objects.all().order_by('pk')
+    testimonials = Testimonials.objects.all().order_by('pk')
     teams = Team.objects.all().order_by('id')
     footer = Footer.objects.first()
 

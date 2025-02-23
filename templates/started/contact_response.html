@@ -77,7 +77,7 @@
         {% endif %}
         <div class="col-12">
             <div class="input-group ">
-                <input type="number" value="{% if form.phone_number.value %}{{form.phone_number.value}}{% endif %}" name="phone_number" required class="form-control" placeholder="# de celular" aria-label="Phone number" aria-describedby="basic-addon2">
+                <input required type="number" value="{% if form.phone_number.value %}{{form.phone_number.value}}{% endif %}" name="phone_number" required class="form-control" placeholder="# de teléfono" aria-label="Phone number" aria-describedby="basic-addon2">
                 <span class="input-group-text" id="basic-addon2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-telephone-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
@@ -95,13 +95,14 @@
             </div>
         {% endif %}
         <div class="col-md-12">
+            <label>Presupuesto (opcional)</label>
             <div class="input-group ">
                 <span class="input-group-text">
                     <svg xmlns="http://www.w3.org/2000/svg" required width="20" height="20" fill="currentColor" class=" bi-currency-dollar" viewBox="0 0 16 16">
                         <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
                     </svg>
                 </span>
-                <input required value="{% if form.budget.value %}{{form.budget.value}}{% endif %}" name="budget" type="number" min=0 placeholder="Presupuesto" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input  value="{% if form.budget.value %}{{form.budget.value}}{% else %}0{% endif %}" name="budget" type="number" min=0 placeholder="Presupuesto (opcional)" class="form-control" aria-label="Amount (to the nearest dollar)">
                 <span class="input-group-text p-0">
                     <select name="budget_type" required class="form-select" id="inputGroupSelect01">
                         <option value="1" {% if form.budget_type.value == "1" %}selected{% endif %}>EUR</option>
@@ -128,7 +129,8 @@
                     
                     <option value="1" {% if form.service.value == '1' %}selected{% endif %}>Software a medida</option>
                     <option value="2" {% if form.service.value == '2' %}selected{% endif %}>Automatización de procesos</option>
-                    <option value="3" {% if form.service.value == '3' %}selected{% endif %}>Creación de blogs</option>
+                    <option value="3" {% if form.service.value == '3' %}selected{% endif %}>Agentes de IA</option>
+                    <option value="3" {% if form.service.value == '3' %}selected{% endif %}>Servicio de consultoría</option>
                     <option value="4" {% if form.service.value == '4' %}selected{% endif %}>Otros...</option>
                 </select>
             </div>

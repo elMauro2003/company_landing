@@ -3,7 +3,7 @@
 
 {% block content %}
   <!-- Features Section -->
-   {% if project.featureportfolio_set.all %}
+   {% if features %}
 <section id="alt-features" class="alt-features section ">
     <div class="container section-title mt-4" data-aos="fade-up">
         <h2>{{project.project_name}}</h2>
@@ -13,7 +13,7 @@
       <div class="row gy-5">
         <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
           <div class="row align-self-center gy-5">
-            {% for feat in project.featureportfolio_set.all %}
+            {% for feat in features %}
             <div class="col-md-6 icon-box">
                 <i class="{{feat.icon}}"></i>
               <div>

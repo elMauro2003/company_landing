@@ -13,14 +13,14 @@
         {% endfor %}
     {% endif %}
 
-    <form class="php-email-form" 
+    <form class="php-email-form rounded" 
           hx-post="{% url 'create_contact' %}" 
           hx-target="#form-change" 
           hx-swap="innerHTML">
             {% csrf_token %}
             <div class="row gy-4">
                 <div class="col-md-6">
-                    <input type="text" name="name" value="{% if form.name.value %}{{form.name.value}}{% endif %}" class="form-control" placeholder="Your Name" required>
+                    <input type="text" name="name" value="{% if form.name.value %}{{form.name.value}}{% endif %}" class="form-control" placeholder="Nombres y apellidos" required>
                     {% if form.name.errors %}
                     <div class="alert alert-danger mt-2 px-2">
                         {% for error in form.name.errors %}
@@ -40,7 +40,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-12">
-                  <input type="text" class="form-control" value="{% if form.subject.value %}{{form.subject.value}}{% endif %}" name="subject" placeholder=" Subjecto" required>
+                  <input type="text" class="form-control" value="{% if form.subject.value %}{{form.subject.value}}{% endif %}" name="subject" placeholder=" Asunto" required>
                   {% if form.email.errors %}
                   <div class="alert alert-danger mt-2 px-2">
                       {% for error in form.subject.errors %}

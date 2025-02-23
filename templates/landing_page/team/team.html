@@ -1,43 +1,66 @@
 {% load static %}
 <!-- Team Section -->
- {% if teams %}
-<section id="team" class="team section">
+
+ 
+  {% if teams %}
+  <section id="testimonials" class="testimonials section">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>{{team_title.title_section_one}}</h2>
-        <p>{{team_title.title_section_two}}</p>
+      <p>{{team_title.title_section_two}}</p>
     </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-        {% for team in teams %}
-        <div class="col-lg-2 col-md-6 d-flex align-items-stretch p-2" data-aos="fade-up" data-aos-delay="100">
-          <div class="team-member">
-            <div class="member-img">
-              <img src="{{team.image.url}}" class="img-fluid" alt="">
-              {% comment %} <div class="social">
-                <a href=""><i class="{{team.media1_icon}}"></i></a>
-                <a href=""><i class="{{team.media2_icon}}"></i></a>
-                <a href=""><i class="{{team.media3_icon}}"></i></a>
-                <a href=""><i class="{{team.media4_icon}}"></i></a>
-              </div> {% endcomment %}
+  
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            },
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 1,
+                "spaceBetween": 40
+              },
+              "1200": {
+                "slidesPerView": 3,
+                "spaceBetween": 1
+              }
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+  
+          {% for team in teams %}
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              
+              
+              <div class=" mt-auto">
+                <img width="200" height="200" src="{{team.image.url}}" class="img-fluid" alt="{{team.member_name}}">
+         
+                <h3>{{team.member_name}}</h3>
+                <h4>{{team.position}}</h4>
+                <p>{{team.description}}</p>
+              </div>
             </div>
-            <div class="member-info p-2">
-              <h5>{{team.member_name}}</h5>
-              <span>{{team.position}}</span>
-              <p>{{team.description}}</p>
-            </div>
-          </div>
-        </div><!-- End Team Member -->
-        {% endfor %}
-        
-
+          </div><!-- End testimonial item -->
+          {% endfor %}
+  
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-
+  
     </div>
-
-  </section><!-- /Team Section -->
-
-  {% endif %}
+  
+  </section> {% endif %}

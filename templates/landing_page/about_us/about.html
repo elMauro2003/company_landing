@@ -1,15 +1,15 @@
 {% load static %}
 <!-- About Section  -->
  {% if about %}
-<section id="about" class="about section">
-    <div class="container aos-init aos-animate" data-aos="fade-up">
+<section id="about" class="about section rounded">
+    <div class="container aos-init aos-animate rounded" data-aos="fade-up">
       <div class="container section-title" data-aos="fade-up">
         <h2>{{about.title_section_one}}</h2>
         <p>{{about.title_section_two}}</p>
       </div>
-      <div class="row gx-0">
-        <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-          <div class="content">
+      <div class="row gx-0 rounded ">
+        <div class="col-12 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+          <div class="content rounded">
             <h3>{{ about.title }}</h3>
             <h2>{{ about.subtitle }}</h2>
             <div class="d-block">
@@ -28,11 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-          {% if about.image %}
-          <img src="{{ about.image.url }}" class="img-fluid" alt="imagen">
-          {% endif %}
-        </div>
+        
       </div>
     </div>
 </section><!-- /About Section -->

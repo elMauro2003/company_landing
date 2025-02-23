@@ -106,6 +106,7 @@ class Services(models.Model):
     long_description = models.TextField(null=True, blank=True)
     icon = models.CharField(max_length=200, default='bi bi-cloud-download-fill')
     button_text = models.CharField(max_length=100, blank=True, null=True)
+    button_url = models.URLField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -189,7 +190,7 @@ class ClientContact(models.Model):
     last_name = models.CharField(max_length=100,null=False, blank=False)
     email = models.EmailField()
     phone_number = models.IntegerField(null=False, blank=False)
-    budget = models.DecimalField(max_digits=100, decimal_places=2, null=False, blank=False)
+    budget = models.DecimalField(max_digits=100, decimal_places=2, null=True, blank=True, default=0)
     budget_type = models.CharField(max_length=10, null=False, blank=False)
     service = models.CharField(max_length=100, null=False, blank=False)
     message = models.TextField(null=False, blank=False)
